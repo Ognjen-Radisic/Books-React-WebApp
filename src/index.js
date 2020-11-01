@@ -23,7 +23,12 @@ const bookTwo = {
 const BookList = () => {
   return (
     <section className='booklist'>
-      <Book img={bookOne.img} title={bookOne.title} author={bookOne.author} />
+      <Book img={bookOne.img} title={bookOne.title} author={bookOne.author}>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut, sed
+          ipsam.
+        </p>
+      </Book>
       <Book img={bookTwo.img} title={bookTwo.title} author={bookTwo.author} />
     </section>
   )
@@ -31,11 +36,13 @@ const BookList = () => {
 
 //Book component
 function Book(props) {
+  const { img, author, title } = props
   return (
     <article className='book'>
-      <img src={props.img} alt='you have no luck' />
-      <h1 className='title'>{props.title}</h1>
-      <h2>{props.author}</h2>
+      <img src={img} alt='you have no luck' />
+      <h1 className='title'>{title}</h1>
+      <h2>{author}</h2>
+      {props.children}
     </article>
   )
 }

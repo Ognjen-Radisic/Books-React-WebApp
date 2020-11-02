@@ -7,6 +7,7 @@ import './index.css'
 //DIfferent book objects
 const books = [
   {
+    id: 1,
     img:
       'https://images-na.ssl-images-amazon.com/images/I/71kxa1-0mfL._AC_UL200_SR200,200_.jpg',
     author: 'George Orwell',
@@ -14,12 +15,14 @@ const books = [
   },
 
   {
+    id: 2,
     img:
       'https://images-na.ssl-images-amazon.com/images/I/81zBVMvSjNL._AC_UL200_SR200,200_.jpg',
     author: 'Stephenie Meyer',
     title: 'Midnight Sun',
   },
   {
+    id: 3,
     img:
       'https://images-na.ssl-images-amazon.com/images/I/81Me-r4UL1L._AC_UL200_SR200,200_.jpg',
     author: 'Wizards RPG Team',
@@ -27,6 +30,7 @@ const books = [
   },
 
   {
+    id: 4,
     img:
       'https://images-na.ssl-images-amazon.com/images/I/81Kc8OsbDxL._AC_UL200_SR200,200_.jpg',
     author: 'Greenlights',
@@ -38,7 +42,7 @@ const BookList = () => {
   return (
     <section className='booklist'>
       {books.map((elem) => {
-        return <Book book={elem} />
+        return <Book key={elem.id} {...elem} />
       })}
     </section>
   )
@@ -46,7 +50,7 @@ const BookList = () => {
 
 //Book component
 function Book(props) {
-  const { img, author, title } = props.book
+  const { img, author, title } = props
   return (
     <article className='book'>
       <img src={img} alt='you have no luck' />

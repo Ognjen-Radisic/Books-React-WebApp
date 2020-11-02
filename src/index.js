@@ -1,42 +1,10 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-
+import { books } from './books'
+import Book from './Book'
 //CSS
 import './index.css'
 
-//DIfferent book objects
-const books = [
-  {
-    id: 1,
-    img:
-      'https://images-na.ssl-images-amazon.com/images/I/71kxa1-0mfL._AC_UL200_SR200,200_.jpg',
-    author: 'George Orwell',
-    title: '1984 (Signet Classics)',
-  },
-
-  {
-    id: 2,
-    img:
-      'https://images-na.ssl-images-amazon.com/images/I/81zBVMvSjNL._AC_UL200_SR200,200_.jpg',
-    author: 'Stephenie Meyer',
-    title: 'Midnight Sun',
-  },
-  {
-    id: 3,
-    img:
-      'https://images-na.ssl-images-amazon.com/images/I/81Me-r4UL1L._AC_UL200_SR200,200_.jpg',
-    author: 'Wizards RPG Team',
-    title: "Tasha's Cauldron of Everything (D&D Rules Expansion)",
-  },
-
-  {
-    id: 4,
-    img:
-      'https://images-na.ssl-images-amazon.com/images/I/81Kc8OsbDxL._AC_UL200_SR200,200_.jpg',
-    author: 'Greenlights',
-    title: 'Matthew McConaughey',
-  },
-]
 //BookList component that contains multiple 'Book' components
 const BookList = () => {
   return (
@@ -45,18 +13,6 @@ const BookList = () => {
         return <Book key={elem.id} {...elem} />
       })}
     </section>
-  )
-}
-
-//Book component
-function Book(props) {
-  const { img, author, title } = props
-  return (
-    <article className='book'>
-      <img src={img} alt='you have no luck' />
-      <h1 className='title'>{title}</h1>
-      <h2>{author}</h2>
-    </article>
   )
 }
 
